@@ -7,11 +7,15 @@ import {UserComponent} from './components/user/user.component';
 import { FormsModule } from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { StudentComponent } from './components/student/student.component';
+import { StudentItem } from './models/student-item.cs/student-item.cs.component';
+import { TeacherComponent } from './components/teacher/teacher.component';
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
     StudentComponent,
+    StudentItem.CsComponent,
+    TeacherComponent,
   ],
   imports: [
     BrowserModule,
