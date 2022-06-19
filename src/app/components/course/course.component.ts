@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { TeacherService } from 'src/app/services/teacher.service';
+import { TeacherItem } from 'src/app/models/teacher-items';
+import { CourseItem } from 'src/app/models/course-items';
+import { CourseService } from 'src/app/services/course.service';
 
 @Component({
   selector: 'app-course',
@@ -6,10 +10,34 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./course.component.scss']
 })
 export class CourseComponent implements OnInit {
-
-  constructor() { }
+  courseItems : CourseItem[] = [];
+  newCourseItem : CourseItem = {};
+  updateCourseItem : CourseItem = {};
+  idCourse = 0;
+  constructor(private courseService : CourseService) { }
 
   ngOnInit(): void {
+    this.courseService.getCourses()
+    .subscribe((courseItems: CourseItem[]) => {
+      this.courseItems=courseItems;
+    });
   }
-
+  addCourseItem() {
+    this.courseService.addCourseItem(this.newCourseItem)
+    .subscribe((courseItems) =>
+    this.courseItems.push(courseItems));
+    this.newCourseItem = {};
+  }
+  
+  deleteCourseItem(id: number) { 
+    this.courseService.deleteCourseItem(id).subscribe((id) => { this.ngOnInit(); });
+  }
+  updateCourseItems() {
+    if (this.updateCourseItem.id) {
+      this.courseService.updateCourseItem(this.updateCourseItem).subscribe((courseItem) => 
+       this.courseItems.push(courseItem));
+      }
+      window.location.reload();
+    this.updateCourseItem = {};
+    }
 }
