@@ -9,6 +9,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { StudentComponent } from './components/student/student.component';
 import { StudentItem } from './models/student-item.cs/student-item.cs.component';
 import { TeacherComponent } from './components/teacher/teacher.component';
+import { CourseComponent } from './components/course/course.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,6 +17,7 @@ import { TeacherComponent } from './components/teacher/teacher.component';
     StudentComponent,
     StudentItem.CsComponent,
     TeacherComponent,
+    CourseComponent,
   ],
   imports: [
     BrowserModule,
