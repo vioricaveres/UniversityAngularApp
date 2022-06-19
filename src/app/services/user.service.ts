@@ -13,13 +13,13 @@ export class UserService {
       return this.httpClient.get<UserItem[]>(API_URL + 'User');
   }
   addUserItem(userItem : UserItem) {
-      return this.httpClient.post<UserItem>(API_URL + '/User', userItem);
+      return this.httpClient.post<UserItem>(API_URL + 'User', userItem);
   }
   deleteUserItem(id: number) {
     return this.httpClient.delete<number>(
-    API_URL + '/User/' + id);
+    API_URL + 'User/' + id);
     }
   updateUserItem(userItem : UserItem) {
-    return this.httpClient.put<UserItem>(API_URL + '/User/' + userItem.Id, userItem);
+    return this.httpClient.put<UserItem>(API_URL + 'User/' + userItem.id, userItem);
   }
 }

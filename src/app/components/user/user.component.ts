@@ -10,6 +10,7 @@ export class UserComponent implements OnInit {
   userItems : UserItem[] = [];
   newUserItem : UserItem = {};
   updateUserItem : UserItem = {};
+  idUser = 0;
   constructor(private userService : UserService) { }
 
   ngOnInit(): void {
@@ -23,5 +24,17 @@ export class UserComponent implements OnInit {
     .subscribe((userItems) =>
     this.userItems.push(userItems));
     this.newUserItem = {};
-  }  
+  }
+  
+  deleteUserItem(id: number) { 
+    this.userService.deleteUserItem(id).subscribe((id) => { this.ngOnInit(); });
+  }
+  updateUserItems() {
+    if (this.updateUserItem.id) {
+      this.userService.updateUserItem(this.updateUserItem).subscribe((userItem) => 
+       this.userItems.push(userItem));
+      }
+      window.location.reload();
+    this.updateUserItem = {};
+    }
 }

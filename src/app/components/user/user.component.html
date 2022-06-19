@@ -10,12 +10,12 @@
         <th>Role</th>
     </tr>
     <tr *ngFor="let userItem of userItems">
-        <td>{{userItem.Id}}</td>
-        <td>{{userItem.FirstName}}</td>
-        <td>{{userItem.LastName}}</td>
-        <td>{{userItem.Email}}</td>
-        <td>{{userItem.Password}}</td>
-        <td>{{userItem.Role}}</td>
+        <td>{{userItem.id}}</td>
+        <td>{{userItem.firstName}}</td>
+        <td>{{userItem.lastName}}</td>
+        <td>{{userItem.email}}</td>
+        <td>{{userItem.password}}</td>
+        <td>{{userItem.role}}</td>
     </tr>
 </table>
 
@@ -59,65 +59,65 @@
 </table> -->
 <table>
     <tr>
-        <td>Nume</td>
-        <td><input [(ngModel)]="newUserItem.FirstName"></td>
+        <td>First Name</td>
+        <td><input [(ngModel)]="newUserItem.firstName"></td>
     </tr>
     <tr>
-        <td>Descriere</td>
-        <td><input [(ngModel)]="newUserItem.LastName"></td>
+        <td>Last Name</td>
+        <td><input [(ngModel)]="newUserItem.lastName"></td>
     </tr>
     <tr>
-        <td>Data</td>
-        <td><input [(ngModel)]="newUserItem.Email"></td>
+        <td>Email</td>
+        <td><input [(ngModel)]="newUserItem.email"></td>
     </tr>
     <tr>
-        <td>NumarOre</td>
-        <td><input [(ngModel)]="newUserItem.Password"></td>
+        <td>Parola</td>
+        <td><input [(ngModel)]="newUserItem.password"></td>
     </tr>
     <tr>
-        <td>NumarOre</td>
-        <td><input [(ngModel)]="newUserItem.Role"></td>
+        <td>Rol</td>
+        <td><input [(ngModel)]="newUserItem.role"></td>
     </tr>
 </table>
 <button (click)="addUserItem()"> Add</button>
 
-<!--
-<p>Delete activity</p>
 
-<form class="example-form">
-    <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Get the id:</mat-label>
-        <input matInput placeholder="Ex. 1" name="id" [(ngModel)]="idActivity" >
-    </mat-form-field>
-  </form>
+<p>Delete user</p>
+
+<p>Dati id-ul</p>
+<input [(ngModel)]="idUser">
+<button (click)="deleteUserItem(idUser)"> Delete</button>
 
 
-<button (click)="deleteActivitiesItem(idActivity)"> Delete</button>
-
-<p>Update activity</p> -->
-<!--  <table>
+<p>Update activity</p> 
+  <table>
     <tr>
         <td>Id</td>
-        <td><input [(ngModel)]="updateActivityItem.id"></td>
+        <td><input [(ngModel)]="updateUserItem.id"></td>
     </tr>
     <tr>
         <td>Nume</td>
-        <td><input [(ngModel)]="updateActivityItem.name"></td>
+        <td><input [(ngModel)]="updateUserItem.firstName"></td>
     </tr>
     <tr>
-        <td>Descriere</td>
-        <td><input [(ngModel)]="updateActivityItem.descriere"></td>
+        <td>last name</td>
+        <td><input [(ngModel)]="updateUserItem.lastName"></td>
     </tr>
     <tr>
-        <td>Data</td>
-        <td><input [(ngModel)]="updateActivityItem.data"></td>
+        <td>email</td>
+        <td><input [(ngModel)]="updateUserItem.email"></td>
     </tr>
     <tr>
-        <td>NumarOre</td>
-        <td><input [(ngModel)]="updateActivityItem.numarOre"></td>
+        <td>parola</td>
+        <td><input [(ngModel)]="updateUserItem.password"></td>
+    </tr>
+    <tr>
+        <td>Rol</td>
+        <td><input [(ngModel)]="updateUserItem.role"></td>
     </tr>
 </table> 
-<form class="example-form">
+<button (click)="updateUserItems()"> Update</button>
+<!-- <form class="example-form">
     <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Id</mat-label>
         <input matInput placeholder="Ex. 1" name="id" [(ngModel)]="updateActivityItem.id" >
